@@ -37,7 +37,7 @@
                         <div>
                             <span class="text-lg font-bold tracking-tight text-slate-900">Asset<span class="text-brand-600">Flow</span></span>
                             <span class="hidden sm:inline-block ml-2 px-2 py-0.5 text-xs font-semibold bg-slate-100 text-slate-600 rounded-full border border-slate-200">
-                                BTS SIO SLAM
+                                Portail DSI
                             </span>
                         </div>
                     </a>

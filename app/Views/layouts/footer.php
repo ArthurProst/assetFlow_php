@@ -6,7 +6,7 @@
                 <div class="flex items-center space-x-2">
                     <span class="font-semibold text-slate-700"><?= e(APP_NAME) ?></span>
                     <span>&bull;</span>
-                    <span>Atelier de professionnalisation BTS SIO option SLAM</span>
+                    <span>Système d'Inventaire et Gestion de Parc</span>
                 </div>
                 <div class="flex items-center space-x-4">
                     <span class="font-mono">PHP 8 Vanilla (MVC 3-tiers)</span>

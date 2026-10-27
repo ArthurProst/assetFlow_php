@@ -2,13 +2,13 @@
 
     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-            <div class="text-xs font-semibold uppercase tracking-wider text-brand-600">Démonstration de lecture (M1/M2)
+            <div class="text-xs font-semibold uppercase tracking-wider text-brand-600">Référentiel Matériel
             </div>
             <h1 class="text-2xl font-bold tracking-tight text-slate-900">
                 Parc Informatique — Liste des Équipements
             </h1>
             <p class="text-sm text-slate-500 mt-1">
-                Exemple de rendu issu du modèle Asset::findAll() avec jointure relationnelle et protection anti-XSS.
+                Inventaire complet des actifs informatiques et état d'affectation en temps réel.
             </p>
         </div>
 

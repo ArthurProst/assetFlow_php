@@ -85,22 +85,8 @@ try {
             <div class="text-rose-600 font-bold text-xs uppercase tracking-wider">Erreur d'exécution 500</div>
             <h1 class="text-lg font-bold text-rose-900">Une erreur inattendue est survenue</h1>
             <p class="text-xs text-slate-600 leading-relaxed">
-                Le serveur a rencontré une anomalie lors du traitement de la requête.
+                Le serveur a rencontré une anomalie lors du traitement de la requête. L'incident a été consigné dans les journaux d'erreurs du serveur PHP.
             </p>
-
-            <?php if (defined('APP_ENV') && APP_ENV === 'development'): ?>
-                <div
-                    class="mt-4 p-4 bg-white border border-rose-300 rounded-lg font-mono text-xs text-rose-800 space-y-1 overflow-x-auto">
-                    <div><strong class="text-rose-950">Exception :</strong> <?= e(get_class($e)) ?></div>
-                    <div><strong class="text-rose-950">Message :</strong> <?= e($e->getMessage()) ?></div>
-                    <div><strong class="text-rose-950">Fichier :</strong> <?= e($e->getFile()) ?>:<span
-                            class="font-bold"><?= (int) $e->getLine() ?></span></div>
-                </div>
-            <?php else: ?>
-                <p class="text-xs text-slate-500 italic">
-                    Consultez les journaux d'erreurs du serveur pour obtenir le détail technique.
-                </p>
-            <?php endif; ?>
 
             <div class="pt-2">
                 <a href="index.php?route=home"
