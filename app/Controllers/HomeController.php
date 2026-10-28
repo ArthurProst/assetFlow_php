@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Controllers;
@@ -87,6 +88,13 @@ class HomeController extends BaseController
             'pageTitle' => 'Inventaire du Parc Matériel',
             'dbConnected' => $dbConnected,
             'assets' => $assets,
+        ]);
+    }
+
+    public function formAddAssignment(): void
+    {
+        $this->render('formAddAssignment/index', [
+            'pageTitle' => 'AssetFlow — Assignation d\'outil'
         ]);
     }
 }
