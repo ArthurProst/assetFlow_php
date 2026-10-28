@@ -1,20 +1,49 @@
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-10">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
 
-    <div class="bg-gradient-to-r from-slate-900 via-slate-800 to-brand-900 rounded-2xl p-8 sm:p-10 text-white shadow-lg">
-        <div class="max-w-3xl space-y-3">
-            <div class="inline-flex items-center space-x-2 bg-brand-500/20 text-brand-300 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider border border-brand-500/30">
-                <span>Système d'Information</span>
-                <span>•</span>
-                <span>Portail Interne</span>
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div>
+            <div class="text-xs font-semibold uppercase tracking-wider text-brand-600">Référentiel Matériel
             </div>
-            <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight">
-                AssetFlow — Portail DSI
+            <h1 class="text-2xl font-bold tracking-tight text-slate-900">
+                Parc Informatique — Assigner un outil à un collaborateur
             </h1>
-            <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
-                Plateforme centrale de gestion et de traçabilité du parc matériel informatique. Retrouvez ci-dessous les 8 modules fonctionnels du portail.
+            <p class="text-sm text-slate-500 mt-1">
+                Inventaire complet des actifs informatiques et état d'affectation en temps réel.
             </p>
         </div>
+
+        <a href="index.php?route=home"
+            class="inline-flex items-center px-4 py-2 border border-slate-300 rounded-lg text-sm font-medium text-slate-700 bg-white hover:bg-slate-50 transition shadow-sm">
+            &larr; Retour au portail
+        </a>
     </div>
 
-    
+
+    <?php if (!$dbConnected): ?>
+        <div class="bg-amber-50 border border-amber-200 p-6 rounded-xl text-center space-y-2">
+            <h3 class="text-sm font-bold text-amber-900">Base de données non accessible</h3>
+            <p class="text-xs text-amber-700">
+                Veuillez importer le script <code class="font-bold">sql/00_init_schema.sql</code> pour afficher la liste des
+                équipements.
+            </p>
+        </div>
+    <?php else: ?>
+        <div>
+            <form action="">
+                <select name="selectUser" id="selectUser">
+                    <?php foreach ($variable as $key => $value): ?>
+                        # code...
+                    <?php endforeach ?>
+                </select>
+
+                <select name="selectTool" id="selectTool">
+                    <?php foreach ($variable as $key => $value) {
+                        # code...
+                    } ?>
+                </select>
+                <input type="date" name="dateAjout" id="dateAjout">
+            </form>
+        </div>
+    <?php endif ?>
+
 </div>
