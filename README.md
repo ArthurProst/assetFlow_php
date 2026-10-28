@@ -114,34 +114,7 @@ Ouvrez ensuite votre navigateur sur :
 
 ---
 
-## 5. Règles de Sécurité et Bonnes Pratiques
-
-### A. Protection contre les Injections SQL (SQLi)
-* **Interdit** : Concaténer directement des variables dans les requêtes SQL (`"SELECT * FROM assets WHERE id = " . $_GET['id']`).
-* **Obligatoire** : Utiliser systématiquement les requêtes préparées PDO avec `prepare()`, `bindValue()` ou passage de tableau à `execute()` :
-```php
-$stmt = $this->db->prepare("SELECT * FROM assets WHERE id = :id");
-$stmt->bindValue(':id', $id, PDO::PARAM_INT);
-$stmt->execute();
-return $stmt->fetch();
-```
-
-### B. Protection contre les Failles XSS (Cross-Site Scripting)
-* **Interdit** : Écrire `<?= $asset['designation'] ?>` sans protection.
-* **Obligatoire** : Passer toutes les données dynamiques au travers de la fonction helper `e()` :
-```php
-<td class="px-6 py-4"><?= e($asset['designation']) ?></td>
-```
-
-### C. Architecture MVC stricte
-* **Front Controller (`public/index.php`)** : Point d'entrée unique. Il gère l'autoloader et le routage.
-* **Contrôleurs (`app/Controllers/`)** : Récupèrent les paramètres utilisateur, sollicitent les modèles, et appellent `$this->render('nom_de_la_vue', $data)`.
-* **Modèles (`app/Models/`)** : Exclusivement dédiés aux requêtes SQL et à la logique métier de persistance. **Aucune balise HTML** ne doit se trouver dans un modèle.
-* **Vues (`app/Views/`)** : Gabarits PHP dédiés à l'affichage et au rendu HTML.
-
----
-
-## 6. Gestion des Évolutions de Schéma (Migrations)
+## 5. Gestion des Évolutions de Schéma (Migrations)
 
 Lors du travail en équipe ou lors du passage d'un module à l'autre, vous serez amenés à modifier la structure de la base de données.
 Consultez le dossier `sql/migrations/` et étudiez le fichier d'exemple :  
