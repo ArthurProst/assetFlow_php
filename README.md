@@ -129,3 +129,7 @@ mysql -u root -p assetflow_db < sql/migrations/01_example_add_field.sql
 
 ## Licence & Paternité
 Support pédagogique conçu pour les ateliers de professionnalisation **BTS SIO (Services Informatiques aux Organisations) - Option SLAM (Solutions Logicielles et Applications Métiers)**. Libre d'usage et d'adaptation pédagogique.
+
+## Fait par :
+Aurélien DESUMEUR
+Arthur PROST

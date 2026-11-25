@@ -76,7 +76,7 @@
                                 <td class="px-6 py-4 text-xs">
                                     <?php if (!empty($asset['affecte_nom'])): ?>
                                         <span class="font-medium text-slate-900">
-                                            <?= e($asset['affecte_prenom']) ?>             <?= e($asset['affecte_nom']) ?>
+                                            <?= e($asset['affecte_prenom']) ?> <?= e($asset['affecte_nom']) ?>
                                         </span>
                                     <?php else: ?>
                                         <span class="text-slate-400 italic">— Aucun —</span>

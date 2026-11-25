@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 if (session_status() === PHP_SESSION_NONE) {
@@ -50,11 +51,16 @@ try {
             $controller->assets();
             break;
 
+        case 'assignments-create':
+            $controller = new \App\Controllers\HomeController();
+            $controller->formAddAssignment();
+            break;
+
         default:
             http_response_code(404);
             $pageTitle = 'Page non trouvée (404)';
             require_once __DIR__ . '/../app/Views/layouts/header.php';
-            ?>
+?>
             <div class="max-w-2xl mx-auto px-4 py-16 text-center space-y-4">
                 <div class="text-5xl font-extrabold text-brand-600">404</div>
                 <h1 class="text-2xl font-bold text-slate-800">Page introuvable</h1>
@@ -69,7 +75,7 @@ try {
                     </a>
                 </div>
             </div>
-            <?php
+    <?php
             require_once __DIR__ . '/../app/Views/layouts/footer.php';
             break;
     }
@@ -96,6 +102,6 @@ try {
             </div>
         </div>
     </div>
-    <?php
+<?php
     require_once __DIR__ . '/../app/Views/layouts/footer.php';
 }

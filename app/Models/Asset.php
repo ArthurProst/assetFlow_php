@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Models;
@@ -57,5 +58,34 @@ class Asset extends BaseModel
 
         $asset = $stmt->fetch();
         return $asset ?: null;
+    }
+
+    public function findAllUsers(): array
+    {
+        $sql = "
+            SELECT *
+            FROM users u
+            ORDER BY u.id ASC;
+        ";
+
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute();
+
+        return $stmt->fetchAll();
+    }
+
+
+    public function findAllAssets(): array
+    {
+        $sql = "
+            SELECT *
+            FROM assets a
+            ORDER BY a.id ASC;
+        ";
+
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute();
+
+        return $stmt->fetchAll();
     }
 }

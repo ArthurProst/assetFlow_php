@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Controllers;
@@ -87,6 +88,31 @@ class HomeController extends BaseController
             'pageTitle' => 'Inventaire du Parc Matériel',
             'dbConnected' => $dbConnected,
             'assets' => $assets,
+        ]);
+    }
+
+    public function formAddAssignment(): void
+    {
+        $dbConnected = false;
+        $users = [];
+        $assets = [];
+
+        try {
+            if (Database::isConnected()) {
+                $dbConnected = true;
+                $assetModel = new Asset();
+                $users = $assetModel->findAllUsers();
+                $assets = $assetModel->findAllAssets();
+            }
+        } catch (PDOException $e) {
+            $dbConnected = false;
+        }
+
+        $this->render('formAddAssignment/index', [
+            'pageTitle' => 'AssetFlow — Assignation d\'outil',
+            'dbConnected' => $dbConnected,
+            'users' => $users,
+            'assets' => $assets
         ]);
     }
 }
