@@ -1,3 +1,10 @@
+<?php
+
+/**
+ * @var array<int, array<string, mixed>> $users
+ * @var array<int, array<string, mixed>> $assets
+ */
+?>
 <div class="flex items-center justify-center">
     <form action="" method="post" class="bg-white border border-slate-200 rounded-xl shadow-sm p-6 sm:p-8 max-w-2xl space-y-6">
 
@@ -11,7 +18,11 @@
             <select name="selectUser" id="selectUser" required
                 class="block w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-900 shadow-sm focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/30">
                 <option value="" disabled selected>Sélectionner un collaborateur</option>
-                <!-- <option value="ID">Prénom Nom</option> (à générer avec la boucle PHP) -->
+                <?php foreach ($users as $user): ?>
+                    <option value="<?= e($user['id']) ?>">
+                        <?= e($user['prenom'] . ' ' . $user['nom']) ?>
+                    </option>
+                <?php endforeach; ?>
             </select>
         </div>
 
@@ -20,7 +31,12 @@
             <select name="selectAsset" id="selectAsset" required
                 class="block w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-900 shadow-sm focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/30">
                 <option value="" disabled selected>Sélectionner un équipement</option>
-                <!-- <option value="ID">CODE — Désignation</option> (à générer avec la boucle PHP) -->
+                <?php foreach ($assets as $asset): ?>
+                    <?php if ($asset['statut'] !== 'disponible') continue; ?>
+                    <option value="<?= e($asset['id']) ?>">
+                        <?= e($asset['code_inventaire'] . ' — ' . $asset['designation']) ?>
+                    </option>
+                <?php endforeach; ?>
             </select>
         </div>
 
